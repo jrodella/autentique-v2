@@ -1,5 +1,5 @@
 {
-    "name": "vinicinbgs/autentique-v2",
+    "name": "jrodella/autentique-v2",
     "type": "library",
     "description": "Api Autentique V2",
     "minimum-stability": "dev",
@@ -15,7 +15,7 @@
         "load": "composer dumpautoload",
         "phpdoc": "php phpDocumentor.phar run -d ./src -t phpdoc --setting=graphs.enabled=true"
     },
-    "homepage": "https://github.com/vinicinbgs/autentique-v2",
+    "homepage": "https://github.com/jrodella/autentique-v2",
     "license": "MIT",
     "authors": [
         {
