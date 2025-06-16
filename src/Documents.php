@@ -78,6 +78,7 @@ class Documents extends BaseResource
             "document" => $attributes["document"],
             "signers" => $attributes["signers"],
             "file" => null,
+            'folder_id' => $attributes["folder_id"] ?? null,
         ];
 
         $queryFile = __FUNCTION__;
