@@ -11,6 +11,10 @@ use vinicinbgs\Autentique\Utils\Query;
  */
 class Folders extends BaseResource
 {
+    const DEFAULT = 'DEFAULT';
+    const GROUP = 'GROUP';
+    const ORGANIZATION = 'ORGANIZATION';
+
     /**
      * @var Query
      */
@@ -35,11 +39,11 @@ class Folders extends BaseResource
      * @param int $page
      * @return array
      */
-    public function listAll(int $page = 1): array
+    public function listAll(int $page = 1, string $type = self::DEFAULT): array
     {
         $graphQuery = $this->query->query(__FUNCTION__);
 
-        $graphQuery = $this->query->setVariables("page", $page, $graphQuery);
+        $graphQuery = $this->query->setVariables(["page", "type"], [$page, $type], $graphQuery);
 
         return $this->api->request($this->token, $graphQuery, "json");
     }
@@ -70,8 +74,8 @@ class Folders extends BaseResource
     {
         $graphQuery = $this->query->query(__FUNCTION__);
         $graphQuery = $this->query->setVariables(
-            ["folderId", "page"],
-            [$folderId, $page],
+            ["folderId", "page", "sandbox"],
+            [$folderId, $page, $this->sandbox],
             $graphQuery
         );
 

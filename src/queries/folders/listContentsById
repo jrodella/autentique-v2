@@ -1,5 +1,5 @@
 "query {
-    documentsByFolder(folder_id: \"$folderId\", limit: 60, page: $page) {
+    documentsByFolder(folder_id: \"$folderId\", limit: 60, page: $page, showSandbox: $sandbox) {
         total
         data {
             id

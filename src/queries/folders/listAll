@@ -1,5 +1,5 @@
 "query {
-    folders(limit: 60, page: $page) {
+    folders(limit: 60, page: $page, type: $type) {
         total
         data {
             id
