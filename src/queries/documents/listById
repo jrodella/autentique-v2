@@ -7,6 +7,7 @@
     files { original signed }
     signatures {
         public_id
+        positions { element x y z }
         name
         email
         created_at
