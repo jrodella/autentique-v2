@@ -59,7 +59,11 @@ abstract class BaseResource
      */
     public function setToken(?string $token)
     {
-        $this->token = $token ?? $_ENV["AUTENTIQUE_TOKEN"];
+        if (function_exists("config") && config("autentique.token")) {
+            $this->token = config("autentique.token");
+        } else {
+            $this->token = $token ?? $_ENV["AUTENTIQUE_TOKEN"];
+        }
         return $this;
     }
 
@@ -70,7 +74,11 @@ abstract class BaseResource
      */
     public function setSandbox(?string $sandbox = null)
     {
-        $this->sandbox = $sandbox ?? ($_ENV["AUTENTIQUE_DEV_MODE"] ?? "false");
+        if (function_exists("config") && config("autentique.sandbox")) {
+            $this->sandbox = config("autentique.sandbox");
+        } else {
+            $this->sandbox = $sandbox ?? ($_ENV["AUTENTIQUE_DEV_MODE"] ?? "false");
+        }
         return $this;
     }
 
