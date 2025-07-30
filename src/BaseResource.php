@@ -74,8 +74,9 @@ abstract class BaseResource
      */
     public function setSandbox(?string $sandbox = null)
     {
-        if (function_exists("config") && config("autentique.sandbox")) {
-            $this->sandbox = config("autentique.sandbox");
+        if (function_exists("config") && isset(config("autentique.sandbox"))) {
+            $conf = config("autentique.sandbox");
+            $this->sandbox = is_bool($conf) ? ($conf ? "true" : "false") : $conf;
         } else {
             $this->sandbox = $sandbox ?? ($_ENV["AUTENTIQUE_DEV_MODE"] ?? "false");
         }
